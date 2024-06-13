@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Cow_str.h"
 int main() {
-    CowString A = CowString("abc");
+/*    CowString A = CowString("abc");
     CowString B = A;
 
 
@@ -10,6 +10,12 @@ int main() {
     B[0] = 'd';
     std::cout << B << '\n';
     std::cout << A << '\n';
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "Hello, World!" << std::endl;*/
+
+    CowString cowString("hello");
+    cowString.debug();
+    std::cout << "==========================="<<"\n";
+    StringWrapper str("world");
+    str.debug();
     return 0;
 }
