@@ -14,8 +14,11 @@ int main() {
 
     CowString cowString("hello");
     cowString.debug();
+    auto cowS = cowString;
+    cowS[1] = 'x';
     std::cout << "==========================="<<"\n";
     StringWrapper str("world");
     str.debug();
+    str.printData();
     return 0;
 }
