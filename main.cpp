@@ -19,6 +19,6 @@ int main() {
     std::cout << "==========================="<<"\n";
     StringWrapper str("world");
     str.debug();
-    str.printData();
+    str.getData();
     return 0;
 }
