@@ -8,7 +8,7 @@ private:
     char *data;
 
 public:
-    StringWrapper(const char *init) : data(new char[strlen(init) + 1]) {
+    explicit StringWrapper(const char *init) : data(new char[strlen(init) + 1]) {
         strcpy(data, init);
     }
 
@@ -40,10 +40,9 @@ public:
         return *this;
     }
 
-    //don`t need this?
     StringWrapper &operator=(StringWrapper &&other) noexcept {
         if (this != &other) {
-            data = std::move(other.data);
+            data = other.data;
             std::cout << "StringWrapper move assigned" << "\n";
         }
         return *this;
@@ -73,7 +72,6 @@ public:
         std::cout << "Data: " << data << std::endl;
     }
 
-    // pointer?
     [[nodiscard]] const char *getData() const {
         return data;
     }
@@ -123,16 +121,6 @@ public:
             delete ref_count;
         }
     }
-
-/*    CowString operator+(const CowString& other) {
-        std::cout << "operator+ called" << "\n";
-        return CowString(data->str() + other.data->str());
-    }
-
-    CowString substr(size_t pos, size_t len) {
-        std::cout << "substr called" << "\n";
-        return CowString(data->substr(pos, len));
-    }*/
 
     CowString operator+(const CowString &other) {
         detach();
